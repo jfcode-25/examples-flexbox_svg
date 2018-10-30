@@ -1,0 +1,226 @@
+/* Border box declaration */
+
+html {
+  box-sizing: border-box;
+}
+/* inherit border-box on all elements in the universe and before and after */
+*, 
+*:before, 
+*:after {
+  box-sizing: inherit;
+}
+
+body {
+  font-family: 'Open Sans', sans-serif;
+  margin: 5%
+}
+
+footer {
+  padding-top: 1em;
+}
+
+h1 {
+  font-family: 'Raleway', sans-serif;
+  font-size: 230%;
+  font-weight: 900;
+  font-style: normal;
+  letter-spacing: 1px;
+  text-align: center;
+  color: white;
+}
+
+h2 {
+  font-family: 'Raleway', sans-serif;
+  font-style: normal;
+  font-weight: 900;
+  font-size: 190%;
+  line-height: 33px;
+  color: #00004d;
+}
+
+h3 {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 160%;
+  font-weight: 800;
+  font-style: normal;
+  line-height: 28px;
+  letter-spacing: -.5px;
+  padding-top: 1em;
+  padding-bottom: .5em;
+  color: #694d07;
+  border-bottom: 1px dotted #694d07;
+}
+
+h4 {
+  font-family: 'Open Sans', sans-serif;
+  display: block;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 120%;
+  line-height: 23px;
+  padding-top: 1em;
+  padding-bottom: .5em;
+  color: #694d07;
+}
+
+h5 {
+  display: block;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 110%;
+  line-height: 20px;
+  font-style: italic;
+  padding-top: .5em;
+  color: #694d07;
+  padding-bottom: .25em;
+}
+
+em {
+  font-weight: bold;
+  color: black;
+}
+
+p, .text {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 100%;
+  font-weight: 400;
+  letter-spacing: -.4px;
+  line-height: 20px;
+  font-style: normal;
+  text-align: left;
+  padding-top: .25em;
+  padding-bottom: .5em;
+  margin-left: auto;
+  margin-right: auto;
+  color: black;
+}
+
+.text {
+    font-size: 110%;
+    text-align: center;
+    line-height: 22px;
+    margin-top: .5em;
+}
+
+a {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 400;
+  text-decoration: underline;
+}
+
+a:active {
+  color: black;
+}
+
+img {
+  max-width: 100%;
+}
+
+/*grid*/
+.wrapper {
+display: grid;
+grid-template-columns: 1fr 1fr;
+background-color: white;
+}
+
+[class*='col-'] {
+  border: 1px dotted red;
+  text-align: center;
+  padding: 1.75em;
+}
+
+[class*='col-']:hover {
+  background-color: #fff2cc;
+  cursor: pointer;
+}
+
+.row-1 {
+  margin-top: 3em;
+  text-shadow: 2px 2px black;
+  background-color: #00004d;
+  padding: .5em;
+  font-size: 190%;
+}
+
+ul {
+  border: 1px solid red;
+  list-style-type: none;
+  margin: 0;
+  padding: 5% 0;
+  overflow: hidden;
+}
+
+
+ li {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  float: left;
+
+  border: 1px solid blue;
+  width: 2em;
+  height: 2em;
+  text-align: center;
+}
+
+/*animation - width and opacity*/
+.flag1 {
+    animation: flagg 15s ease-in-out infinite;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    z-index: -1;
+}
+
+@keyframes flagg {
+  0% {
+    opacity: 1;
+    width: 100%;
+  }
+  30% {
+    opacity: .7;
+    width: 107%;
+  }
+
+  50% {
+    opacity: .5;
+    width: 109%;
+  }
+
+  60% {
+    opacity: .3;
+    width: 107%;
+  }
+
+  70% {
+  opacity: .7;
+  width: 105%;
+  }
+
+  100% {
+    opacity: 1;
+    width: 100%;
+  }
+} 
+
+@media (min-width: 731px) and (max-width: 900px) {
+
+.wrapper {
+grid-template-columns: 1fr 1fr;
+}
+h2 {
+  font-size: 190%;
+}
+}
+
+@media (max-width: 731px) {
+.wrapper {
+  display: block;
+}
+
+h2, .row-1 {
+  font-size: 170%;
+  line-height: 30px;
+}
+
+}

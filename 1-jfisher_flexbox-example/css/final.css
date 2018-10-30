@@ -1,0 +1,367 @@
+/* Border box declaration */
+
+html {
+  box-sizing: border-box;
+}
+/* inherit border-box on all elements in the universe and before and after */
+*, 
+*:before, 
+*:after {
+  box-sizing: inherit;
+}
+
+body {
+  background: white;
+  font-family: 'Open Sans', sans-serif;
+}
+
+h1 {
+  font-family: 'Raleway', sans-serif;
+  font-size: 301%;
+  font-weight: 900;
+  font-style: normal;
+  letter-spacing: 1px;
+  text-align: left;
+  color: #694d07;
+  padding-bottom: .25em;
+}
+
+h2 {
+  font-family: 'Raleway', sans-serif;
+  font-style: normal;
+  font-weight: 900;
+  font-size: 235%;
+  line-height: 43px;
+  color: #364d6d;
+}
+
+h3 {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 160%;
+  font-weight: 800;
+  font-style: normal;
+  line-height: 28px;
+  letter-spacing: -.5px;
+  padding-top: 1em;
+  padding-bottom: .5em;
+  color: #694d07;
+  border-bottom: 1px dotted #694d07;
+}
+
+h4 {
+  font-family: 'Open Sans', sans-serif;
+  display: block;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 120%;
+  line-height: 23px;
+  padding-bottom: .5em;
+  color: #694d07;
+}
+
+h5 {
+  display: block;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 110%;
+  line-height: 20px;
+  font-style: italic;
+  padding-top: .5em;
+  color: #694d07;
+  padding-bottom: .25em;
+}
+
+/*Grid wrapper*/
+.wrapper {
+  width: 100%;
+  max-width: 1200px;
+  float: none;
+}
+
+/*Text and img styles*/
+em {
+  font-weight: bold;
+  color: black;
+}
+
+p {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 95%;
+  font-weight: 400;
+  letter-spacing: -.4px;
+  line-height: 20px;
+  font-style: normal;
+  text-align: left;
+  padding-top: .25em;
+  padding-bottom: .5em;
+  margin-left: auto;
+  margin-right: auto;
+  color: black;
+}
+
+a {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 400;
+  text-decoration: underline;
+}
+
+a:active {
+  color: black;
+}
+
+cite {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 600;
+  font-style: italic;
+  color: #143c72;
+}
+
+iframe {
+  max-width: 95%;
+  padding: .3em;
+  margin-top: .25em;
+  margin-bottom: .5em;
+  border: 1px dotted rgb(58, 110, 181);
+}
+
+.headline {
+  margin-left: .6em;
+  padding-top: .6em;
+  max-width: 1200px;
+}
+
+img {
+  max-width: 100%;
+}
+
+/*on hover transition/transform/translate - with filters*/
+.head {
+  transition: 4s ease-out;
+}
+    
+.head:hover {
+    transform: scale(1.05);
+}
+
+/*filter*/
+.head:hover {
+    filter: sepia(1);
+}
+
+.col-2 {
+    transition: 1s;
+}
+
+.col-2:hover {
+    transform: translate(5px,5px);
+}
+/*filter*/
+.col-2 img:hover {
+  filter: drop-shadow(.35em .35em .35em rgba(0,0,0,0.6));
+}
+
+/*Flex*/
+.flex-container {
+	display: flex;
+	flex-flow: row wrap;
+  flex: 0 1 auto;
+  justify-content: flex-end;
+}
+
+.flex-container::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+[class*='col-'] {
+  padding: 1em;
+}
+
+.col-1-2,
+.col-1-4 {
+  flex: 0 0 20%;
+}
+
+.col-1-2 > p {
+  padding-bottom: 1em;
+  border-bottom: .5px dotted;
+}
+
+.col-2 {
+  flex: 0 0 40%;
+  border-right: 1px dotted #694d07;
+  align-self: flex-start;
+}
+
+.col-3 {
+  flex: 0 0 75%;
+}
+
+.col-4 {
+  flex: 0 0 100%;
+}
+
+/*grid*/
+.wrapper {
+display: grid;
+grid-template-columns: 30% 1fr 1fr;
+}
+
+aside {
+  grid-row-start: 1;
+  grid-row-end: 3;
+  padding: 1.5em;
+}
+
+/*Flexbox inside grid*/
+.side {
+  display: flex;
+  justify-content: center;
+  padding-bottom: 1em;
+  }
+
+/*Media queries grid and flex*/
+@media screen and (max-width:680px) {
+    /*grid*/
+    /*grid re-ordering*/
+    .wrapper > .col-a {order: 3;}
+    .wrapper > .col-b {order: 1;}
+    .wrapper > .col-c {order: 2;}
+    .wrapper > .col-d {order: 4;}
+    .wrapper aside {order: 5;
+        grid-row-start: auto;
+        grid-row-end: auto;
+        padding: .5em;  }
+    .wrapper {
+      display: grid;
+      grid-template-columns: 1fr;}
+    [class*='col-'] {
+      padding: .5em;
+    }
+    img {margin: .25em;
+    }
+
+    /*flex*/
+    /*flex re-ordering*/
+    .col-1-2 {
+      flex: 0 0 100%;
+      order: 11;
+    }
+
+    .col-4 {
+      order: 12;
+    }
+    .col-2 {
+    flex: 0 0 100%;
+    }
+}
+
+@media screen and (min-width:1300px) {
+.col-2 {}
+}
+
+/* Navigation - Remove margins and padding from the list, and add a background color */
+ul.topnav {
+  list-style-type: none;
+  margin: 0;
+  max-width: 1200px;
+  overflow: hidden;
+  background-color: rgb(234, 214, 187);
+}
+
+/* Float the list items side by side */
+ul.topnav li {
+  float: left;
+}
+
+/* Style the links inside the list items */
+ul.topnav li a {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 700;
+  display: inline-block;
+  color: #364d6d;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  transition: 0.3s;
+  font-size: 17px;
+}
+
+/* Change background color of links on hover */
+ul.topnav li a:hover {
+  background-color: #364d6d;
+  color: white;
+}
+
+/* Hide the list item that contains the link that should open and close the topnav on small screens */
+ul.topnav li.icon {
+  display: none;
+}
+
+/* When the screen is less than 680 pixels wide, hide all list items, except for the first one ("Home"). Show the list item that contains the link to open and close the topnav (li.icon) */
+@media screen and (max-width:680px) {
+  ul.topnav li:not(:first-child) {
+    display: none;
+  }
+
+  ul.topnav li.icon {
+    float: right;
+    display: inline-block;
+  }
+}
+
+/* The "responsive" class is added to the topnav with JavaScript when the user clicks on the icon. This class makes the topnav look good on small screens */
+@media screen and (max-width:680px) {
+  ul.topnav.responsive {
+    position: relative;
+  }
+
+  ul.topnav.responsive li.icon {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+
+  ul.topnav.responsive li {
+    float: none;
+    display: inline;
+  }
+
+  ul.topnav.responsive li a {
+    display: block;
+    text-align: left;
+  }
+}
+
+/*Media Queries Grid and Flex*/
+@media (max-width: 731px) {
+
+  h1 {
+    font-size: 250%;
+    padding-bottom: .25em;
+  }
+
+  h2 {
+    font-size: 200%;
+    line-height: 33px;
+  }
+
+  h3 {
+    font-size: 150%;
+    line-height: 30px;
+    padding-right: 1em;}
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
